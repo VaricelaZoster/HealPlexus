@@ -5,6 +5,7 @@ import AddDoctor from './pages/Admin/AddDoctor'
 import Dashboard from './pages/Admin/Dashboard'
 import DoctorsList from './pages/Admin/DoctorsList'
 import AdminLayout from './layout/AdminLayout'
+import PatientsList from './pages/Admin/PatientsList'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path = "addDoctor" element = {<AddDoctor/>}></Route>
         <Route path = "dashboard" element = {<Dashboard/>}></Route>
         <Route path = "DoctorsList" element = {<DoctorsList/>}></Route>
+        <Route path = "patientsList" element = {<PatientsList/>}></Route>
       </Route>
     </Routes>
   )

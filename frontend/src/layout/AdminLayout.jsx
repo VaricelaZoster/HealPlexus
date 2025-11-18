@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar'
 
 const AdminLayout = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-[rgb(248, 249, 253)]">
       <AdminNavbar />
 
       <div className="flex flex-1 overflow-hidden">
@@ -14,7 +14,7 @@ const AdminLayout = () => {
         </div>
 
 
-        <div className="flex-1 overflow-y-auto bg-white p-4">
+        <div className="flex-1 overflow-y-auto bg-[#f8f9fd] p-4">
           <Outlet />
         </div>
       </div>

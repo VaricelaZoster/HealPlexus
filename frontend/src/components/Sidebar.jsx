@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const Sidebar = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -8,7 +8,8 @@ const Sidebar = () => {
     { label: 'Dashboard', path: "/admin/dashboard" },
     { label: 'Appoinments', path: "/admin/allAppoinments" },
     { label: 'Add Doctor', path: "/admin/addDoctor" },
-    { label: 'Doctors List', path: "/admin/DoctorsList" }
+    { label: 'Doctors List', path: "/admin/DoctorsList" },
+    { label: 'Patients List', path: "/admin/patientsList" },
   ]
   
   const handleKey = (e, idx) => {
@@ -17,6 +18,14 @@ const Sidebar = () => {
       setActiveIndex(idx)
     }
   }
+
+  const location = useLocation()
+
+  useEffect(() => {
+    const pathname = location.pathname || ''
+    const idx = items.findIndex(i => pathname === i.path || pathname.startsWith(i.path))
+    if (idx !== -1) setActiveIndex(idx)
+  }, [location.pathname])
   
   return (
   <div className='flex flex-col items-center pt-7 gap-1 fixed w-60 border-r border-gray-300 h-svh'>
@@ -24,9 +33,8 @@ const Sidebar = () => {
         const isActive = idx === activeIndex
         const bgClass = isActive ? 'bg-[#d9d9fe]' : 'bg-white hover:bg-[#f7f7fe]'
         return (
-          <div className='flex w-full'>
+          <div className='flex w-full' key={item.label}>
             <Link
-            key={item.label}
             to={item.path}
             role='button'
             tabIndex={0}
