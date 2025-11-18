@@ -31,7 +31,7 @@ const AllAppoinments = () => {
           </thead>
           <tbody className='bg-white text-sm'>
             {appointments.map((a, idx) => (
-              <tr key={idx} className='h-18 border-b-1 border-gray-300 text-[#696B80] cursor-pointer hover:bg-gray-100'>
+              <tr key={idx} className='h-18 border-b border-gray-300 text-[#696B80] cursor-pointer hover:bg-gray-100'>
                 <td className='py-3 px-4'>{idx + 1}</td>
                 <td className='flex items-center gap-4 py-3 px-4'><img className='h-15 w-15' src = {patientIcon}/>{a.patient}</td>
                 <td className='py-3 px-4'>{a.department}</td>
